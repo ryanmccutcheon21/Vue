@@ -13,6 +13,15 @@ const app = Vue.createApp({
       this.message = this.currentUserInput;
     },
   },
-});
+}).mount('#app');
 
-app.mount('#app');
+const app2 = Vue.createApp({
+  template: `
+  <p>{{ favoriteMeal }}</p>
+  `,
+  data() {
+    return {
+      favoriteMeal: 'Pizza'
+    }
+  }
+}).mount('#app2')
