@@ -1,0 +1,36 @@
+createApp({...})
+
+beforeCreate() // first lifecycle that is reached. Called before the app has
+been fully initialized
+
+created() // called after beforeCreate. Still have nothing on the screen
+                -> Compile Template  // now the template is compiled. All 
+                dynamic placeholders and interpolation are replaced with the values
+
+beforeMount()  // means this is right before Vue will render something on the sceen
+
+mounted()  // we see something on the screen now
+
+Mounted Vue Instance  
+
+Data Changed
+
+beforeUpdate() // when data is changed, it triggers a new lifecycle 
+
+updated() // the update is visible on the screen. We don't reach mounted
+again because the template was never unmounted
+
+
+
+
+
+App can be unmounted:
+
+- instead of data being changed after mounted vue instance, the diagram
+shows instance unmounted 
+
+Instance unmounted
+
+beforeUnmount()
+
+unmounted() // nothing is rendered on the screen from vue now 
