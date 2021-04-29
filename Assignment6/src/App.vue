@@ -60,7 +60,4 @@ html {
 body {
   margin: 0;
 }
-div {
-  background: red;
-}
 </style>
