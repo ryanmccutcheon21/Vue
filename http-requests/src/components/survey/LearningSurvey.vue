@@ -41,6 +41,7 @@
         <p v-if="invalidInput">
           One or more input fields are invalid. Please check your provided data.
         </p>
+        <p v-if="error">{{ error }}</p>
         <div>
           <base-button>Submit</base-button>
         </div>
@@ -58,6 +59,7 @@ export default {
       enteredName: "",
       chosenRating: null,
       invalidInput: false,
+      error: null,
     };
   },
   // emits: ["survey-submit"],
@@ -87,14 +89,28 @@ export default {
       //     }),
       //   }
       // ),
+      this.error = null;
 
-      axios.post(
-        "https://vue-http-demo-21cef-default-rtdb.firebaseio.com/survey.json",
-        {
-          name: this.enteredName,
-          rating: this.chosenRating,
-        }
-      )((this.enteredName = ""));
+      axios
+        .post(
+          "https://vue-http-demo-21cef-default-rtdb.firebaseio.com/survey.json",
+          {
+            name: this.enteredName,
+            rating: this.chosenRating,
+          }
+        )
+        .then((res) => {
+          if (res.ok) {
+            console.log(res);
+          } else {
+            throw new Error("Could not save data!");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          this.error = err.message;
+        });
+      this.enteredName = "";
       this.chosenRating = null;
     },
   },
