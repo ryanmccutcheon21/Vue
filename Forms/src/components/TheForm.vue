@@ -1,8 +1,8 @@
 <template>
-  <form>
+  <form @submit.prevent="submitForm">
     <div class="form-control">
       <label for="user-name">Your Name</label>
-      <input id="user-name" name="user-name" type="text" />
+      <input id="user-name" name="user-name" type="text" v-model="userName" />
     </div>
     <div class="form-control">
       <label for="age">Your Age (Years)</label>
@@ -52,6 +52,23 @@
   </form>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      userName: "",
+    };
+  },
+  methods: {
+    submitForm() {
+      console.log(this.userName);
+      this.userName = "";
+    },
+  },
+};
+</script>
+
+
 <style scoped>
 form {
   margin: 2rem auto;
@@ -87,15 +104,15 @@ select {
   width: auto;
 }
 
-input[type='checkbox'],
-input[type='radio'] {
+input[type="checkbox"],
+input[type="radio"] {
   display: inline-block;
   width: auto;
   margin-right: 1rem;
 }
 
-input[type='checkbox'] + label,
-input[type='radio'] + label {
+input[type="checkbox"] + label,
+input[type="radio"] + label {
   font-weight: normal;
 }
 
