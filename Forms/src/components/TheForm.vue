@@ -80,7 +80,7 @@ export default {
       userName: "",
       userAge: null,
       referrer: "google",
-      interest: null,
+      interest: [],
       how: null,
     };
   },
@@ -98,7 +98,7 @@ export default {
       this.referrer = "google";
       console.log("Checkboxes: " + this.interest);
       console.log("Radio buttons: " + this.how);
-      this.interest = null;
+      this.interest = [];
       this.how = null;
     },
   },
