@@ -50,6 +50,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
@@ -72,20 +74,27 @@ export default {
       //   rating: this.chosenRating,
       // });
 
-      fetch(
+      // fetch(
+      //   "https://vue-http-demo-21cef-default-rtdb.firebaseio.com/survey.json",
+      //   {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify({
+      //       name: this.enteredName,
+      //       rating: this.chosenRating,
+      //     }),
+      //   }
+      // ),
+
+      axios.post(
         "https://vue-http-demo-21cef-default-rtdb.firebaseio.com/survey.json",
         {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: this.enteredName,
-            rating: this.chosenRating,
-          }),
+          name: this.enteredName,
+          rating: this.chosenRating,
         }
-      ),
-        (this.enteredName = "");
+      )((this.enteredName = ""));
       this.chosenRating = null;
     },
   },
