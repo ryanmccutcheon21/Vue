@@ -30,6 +30,7 @@
           name="interest"
           type="checkbox"
           v-model="interest"
+          value="news"
         />
         <label for="interest-news">News</label>
       </div>
@@ -39,6 +40,7 @@
           name="interest"
           type="checkbox"
           v-model="interest"
+          value="tutorials"
         />
         <label for="interest-tutorials">Tutorials</label>
       </div>
@@ -48,6 +50,7 @@
           name="interest"
           type="checkbox"
           v-model="interest"
+          value="nothing"
         />
         <label for="interest-nothing">Nothing</label>
       </div>
@@ -55,15 +58,33 @@
     <div class="form-control">
       <h2>How do you learn?</h2>
       <div>
-        <input id="how-video" name="how" type="radio" v-model="how" />
+        <input
+          id="how-video"
+          name="how"
+          type="radio"
+          v-model="how"
+          value="video"
+        />
         <label for="how-video">Video Courses</label>
       </div>
       <div>
-        <input id="how-blogs" name="how" type="radio" v-model="how" />
+        <input
+          id="how-blogs"
+          name="how"
+          type="radio"
+          v-model="how"
+          value="blogs"
+        />
         <label for="how-blogs">Blogs</label>
       </div>
       <div>
-        <input id="how-other" name="how" type="radio" v-model="how" />
+        <input
+          id="how-other"
+          name="how"
+          type="radio"
+          v-model="how"
+          value="other"
+        />
         <label for="how-other">Other</label>
       </div>
     </div>
